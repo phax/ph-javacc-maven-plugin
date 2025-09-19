@@ -26,8 +26,6 @@ import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.List;
 
-import javax.annotation.Nonnull;
-
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
@@ -37,6 +35,8 @@ import org.codehaus.plexus.util.SelectorUtils;
 
 import com.helger.base.string.StringHelper;
 import com.helger.collection.commons.CommonsLinkedHashSet;
+
+import jakarta.annotation.Nonnull;
 
 /**
  * Provides common services for all mojos that compile JavaCC grammar files.

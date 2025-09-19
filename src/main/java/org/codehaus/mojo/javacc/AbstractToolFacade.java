@@ -3,8 +3,6 @@ package org.codehaus.mojo.javacc;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-import javax.annotation.Nonnull;
-
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -30,6 +28,8 @@ import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.plugin.logging.SystemStreamLog;
 
 import com.helger.base.state.ESuccess;
+
+import jakarta.annotation.Nonnull;
 
 /**
  * Provides a facade for the mojos to invoke JavaCC related tools.

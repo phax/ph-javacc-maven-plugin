@@ -34,21 +34,19 @@ import org.apache.maven.reporting.AbstractMavenReport;
 import org.apache.maven.reporting.MavenReportException;
 
 /**
- * <a href="https://javacc.dev.java.net/doc/JJDoc.html">JJDoc</a> takes a JavaCC
- * parser specification and produces documentation for the BNF grammar. This
- * mojo will search the source directory for all <code>*.jj</code> files and run
- * JJDoc once for each file it finds. Each of these output files, along with an
- * <code>index.html</code> file will be placed in the site directory (
- * <code>target/site/jjdoc</code>), and a link will be created in the "Project
- * Reports" menu of the generated site.
+ * <a href="https://javacc.dev.java.net/doc/JJDoc.html">JJDoc</a> takes a JavaCC parser
+ * specification and produces documentation for the BNF grammar. This mojo will search the source
+ * directory for all <code>*.jj</code> files and run JJDoc once for each file it finds. Each of
+ * these output files, along with an <code>index.html</code> file will be placed in the site
+ * directory ( <code>target/site/jjdoc</code>), and a link will be created in the "Project Reports"
+ * menu of the generated site.
  *
  * @goal jjdoc
  * @execute phase=generate-sources
  * @since 2.3
  * @author <a href="mailto:pgier@redhat.com">Paul Gier</a>
  * @version $Id: JJDocMojo.java 10603 2009-09-06 15:05:08Z bentmann $
- * @see <a href="https://javacc.dev.java.net/doc/JJDoc.html">JJDoc
- *      Documentation</a>
+ * @see <a href="https://javacc.dev.java.net/doc/JJDoc.html">JJDoc Documentation</a>
  */
 public class JJDocMojo extends AbstractMavenReport
 {
@@ -71,12 +69,11 @@ public class JJDocMojo extends AbstractMavenReport
   private Renderer siteRenderer;
 
   /**
-   * The directories where the JavaCC grammar files (<code>*.jj</code>) are
-   * located. By default, the directories
-   * <code>${basedir}/src/main/javacc</code>,
+   * The directories where the JavaCC grammar files (<code>*.jj</code>) are located. By default, the
+   * directories <code>${basedir}/src/main/javacc</code>,
    * <code>${project.build.directory}/generated-sources/jjtree</code> and
-   * <code>${project.build.directory}/generated-sources/jtb</code> are scanned
-   * for grammar files to document.
+   * <code>${project.build.directory}/generated-sources/jtb</code> are scanned for grammar files to
+   * document.
    *
    * @parameter
    */
@@ -107,22 +104,20 @@ public class JJDocMojo extends AbstractMavenReport
   private File defaultGrammarDirectoryJTB;
 
   /**
-   * The relative path of the JJDoc reports in the output directory. This path
-   * will be appended to the output directory.
+   * The relative path of the JJDoc reports in the output directory. This path will be appended to
+   * the output directory.
    *
    * @parameter default-value="jjdoc";
    */
   private String jjdocDirectory;
 
   /**
-   * The destination directory where JJDoc saves the generated documentation
-   * files. Note that this parameter is only relevant if the goal is run from
-   * the command line or from the default build lifecycle. If the goal is run
-   * indirectly as part of a site generation, the output directory configured in
-   * the Maven Site Plugin is used instead.
+   * The destination directory where JJDoc saves the generated documentation files. Note that this
+   * parameter is only relevant if the goal is run from the command line or from the default build
+   * lifecycle. If the goal is run indirectly as part of a site generation, the output directory
+   * configured in the Maven Site Plugin is used instead.
    *
-   * @parameter property=outputDirectory
-   *            default-value="${project.reporting.outputDirectory}"
+   * @parameter property=outputDirectory default-value="${project.reporting.outputDirectory}"
    */
   @SuppressWarnings ("hiding")
   private File outputDirectory;
@@ -130,8 +125,7 @@ public class JJDocMojo extends AbstractMavenReport
   /**
    * The file encoding to use for reading the grammar files.
    *
-   * @parameter property=grammarEncoding
-   *            default-value="${project.build.sourceEncoding}"
+   * @parameter property=grammarEncoding default-value="${project.build.sourceEncoding}"
    * @since 2.6
    */
   private String grammarEncoding;
@@ -139,17 +133,15 @@ public class JJDocMojo extends AbstractMavenReport
   /**
    * The file encoding to use for writing the outout files.
    *
-   * @parameter property=outputEncoding
-   *            default-value="${project.build.sourceEncoding}"
+   * @parameter property=outputEncoding default-value="${project.build.sourceEncoding}"
    * @since 4.1.0
    */
   private String outputEncoding;
 
   /**
-   * The hypertext reference to an optional CSS file for the generated HTML
-   * documents. If specified, this CSS file will be included via a
-   * <code>&lt;link&gt;</code> element in the HTML documents. Otherwise, the
-   * default style will be used.
+   * The hypertext reference to an optional CSS file for the generated HTML documents. If specified,
+   * this CSS file will be included via a <code>&lt;link&gt;</code> element in the HTML documents.
+   * Otherwise, the default style will be used.
    *
    * @parameter property=cssHref
    * @since 2.5
@@ -157,22 +149,20 @@ public class JJDocMojo extends AbstractMavenReport
   private String cssHref;
 
   /**
-   * A flag to specify the output format for the generated documentation. If set
-   * to <code>true</code>, JJDoc will generate a plain text description of the
-   * BNF. Some formatting is done via tab characters, but the intention is to
-   * leave it as plain as possible. Specifying <code>false</code> causes JJDoc
-   * to generate a hyperlinked HTML document unless the parameter {@link #bnf}
-   * has been set to <code>true</code>. Default value is <code>false</code>.
+   * A flag to specify the output format for the generated documentation. If set to
+   * <code>true</code>, JJDoc will generate a plain text description of the BNF. Some formatting is
+   * done via tab characters, but the intention is to leave it as plain as possible. Specifying
+   * <code>false</code> causes JJDoc to generate a hyperlinked HTML document unless the parameter
+   * {@link #bnf} has been set to <code>true</code>. Default value is <code>false</code>.
    *
    * @parameter property=text
    */
   private Boolean text;
 
   /**
-   * A flag whether to generate a plain text document with the unformatted BNF.
-   * Note that setting this option to <code>true</code> is only effective if the
-   * parameter {@link #text} is <code>false</code>. Default value is
-   * <code>false</code>.
+   * A flag whether to generate a plain text document with the unformatted BNF. Note that setting
+   * this option to <code>true</code> is only effective if the parameter {@link #text} is
+   * <code>false</code>. Default value is <code>false</code>.
    *
    * @parameter property=bnf
    * @since 2.6
@@ -180,10 +170,9 @@ public class JJDocMojo extends AbstractMavenReport
   private Boolean bnf;
 
   /**
-   * This option controls the structure of the generated HTML output. If set to
-   * <code>true</code>, a single HTML table for the entire BNF is generated.
-   * Setting it to <code>false</code> will produce one table for every
-   * production in the grammar.
+   * This option controls the structure of the generated HTML output. If set to <code>true</code>, a
+   * single HTML table for the entire BNF is generated. Setting it to <code>false</code> will
+   * produce one table for every production in the grammar.
    *
    * @parameter property=oneTable default-value=true
    */
@@ -214,8 +203,7 @@ public class JJDocMojo extends AbstractMavenReport
   }
 
   /**
-   * Get the output directory of the report if run directly from the command
-   * line.
+   * Get the output directory of the report if run directly from the command line.
    *
    * @see org.apache.maven.reporting.AbstractMavenReport#getOutputDirectory()
    * @return The report output directory.
@@ -227,9 +215,8 @@ public class JJDocMojo extends AbstractMavenReport
   }
 
   /**
-   * Get the output directory of the JJDoc files, i.e. the sub directory in the
-   * report output directory as specified by the {@link #jjdocDirectory}
-   * parameter.
+   * Get the output directory of the JJDoc files, i.e. the sub directory in the report output
+   * directory as specified by the {@link #jjdocDirectory} parameter.
    *
    * @return The report output directory of the JJDoc files.
    */
@@ -241,8 +228,8 @@ public class JJDocMojo extends AbstractMavenReport
   /**
    * Get the source directories that should be scanned for grammar files.
    *
-   * @return The source directories that should be scanned for grammar files,
-   *         never <code>null</code>.
+   * @return The source directories that should be scanned for grammar files, never
+   *         <code>null</code>.
    */
   private File [] getSourceDirectories ()
   {
@@ -306,8 +293,8 @@ public class JJDocMojo extends AbstractMavenReport
 
   /**
    * @see org.apache.maven.reporting.MavenReport#canGenerateReport()
-   * @return <code>true</code> if the configured source directories are not
-   *         empty, <code>false</code> otherwise.
+   * @return <code>true</code> if the configured source directories are not empty,
+   *         <code>false</code> otherwise.
    */
   @Override
   public boolean canGenerateReport ()
@@ -355,7 +342,8 @@ public class JJDocMojo extends AbstractMavenReport
           final File grammarFile = grammarInfo.getGrammarFile ();
 
           String relativeOutputFileName = grammarInfo.getRelativeGrammarFile ();
-          relativeOutputFileName = relativeOutputFileName.replaceAll ("(?i)\\.(jj|jjt|jtb)$", getOutputFileExtension ());
+          relativeOutputFileName = relativeOutputFileName.replaceAll ("(?i)\\.(jj|jjt|jtb)$",
+                                                                      getOutputFileExtension ());
 
           final File jjdocOutputFile = new File (getJJDocOutputDirectory (), relativeOutputFileName);
 
@@ -382,12 +370,11 @@ public class JJDocMojo extends AbstractMavenReport
   }
 
   /**
-   * The JJDoc output file will have a <code>.html</code> or <code>.txt</code>
-   * extension depending on the value of the parameters {@link #text} and
-   * {@link #bnf}.
+   * The JJDoc output file will have a <code>.html</code> or <code>.txt</code> extension depending
+   * on the value of the parameters {@link #text} and {@link #bnf}.
    *
-   * @return The file extension (including the leading period) to be used for
-   *         the JJDoc output files.
+   * @return The file extension (including the leading period) to be used for the JJDoc output
+   *         files.
    */
   private String getOutputFileExtension ()
   {
@@ -433,8 +420,7 @@ public class JJDocMojo extends AbstractMavenReport
   }
 
   /**
-   * Create a table row containing a link to the JJDoc report for a grammar
-   * file.
+   * Create a table row containing a link to the JJDoc report for a grammar file.
    *
    * @param sink
    *        The sink to write the report
@@ -445,7 +431,10 @@ public class JJDocMojo extends AbstractMavenReport
    * @param sLinkPath
    *        The path to the JJDoc output.
    */
-  private void createReportLink (final Sink sink, final File sourceDirectory, final File grammarFile, final String sLinkPath)
+  private void createReportLink (final Sink sink,
+                                 final File sourceDirectory,
+                                 final File grammarFile,
+                                 final String sLinkPath)
   {
     sink.tableRow ();
     sink.tableCell ();
@@ -478,10 +467,9 @@ public class JJDocMojo extends AbstractMavenReport
   }
 
   /**
-   * Creates a new facade to invoke JJDoc. Most options for the invocation are
-   * derived from the current values of the corresponding mojo parameters. The
-   * caller is responsible to set the input file and output file on the returned
-   * facade.
+   * Creates a new facade to invoke JJDoc. Most options for the invocation are derived from the
+   * current values of the corresponding mojo parameters. The caller is responsible to set the input
+   * file and output file on the returned facade.
    *
    * @return The facade for the tool invocation, never <code>null</code>.
    */
@@ -499,13 +487,12 @@ public class JJDocMojo extends AbstractMavenReport
   }
 
   /**
-   * Searches the specified source directory to find grammar files that can be
-   * documented.
+   * Searches the specified source directory to find grammar files that can be documented.
    *
    * @param sourceDirectory
    *        The source directory to scan for grammar files.
-   * @return An array of grammar infos describing the found grammar files or
-   *         <code>null</code> if the source directory does not exist.
+   * @return An array of grammar infos describing the found grammar files or <code>null</code> if
+   *         the source directory does not exist.
    * @throws MavenReportException
    *         If there is a problem while scanning for .jj files.
    */
@@ -548,8 +535,7 @@ public class JJDocMojo extends AbstractMavenReport
   }
 
   /**
-   * Compares grammar infos using their relative grammar file paths as the sort
-   * key.
+   * Compares grammar infos using their relative grammar file paths as the sort key.
    */
   private static class GrammarInfoComparator implements Comparator <GrammarInfo>
   {
@@ -575,9 +561,8 @@ public class JJDocMojo extends AbstractMavenReport
      *        The first grammar info.
      * @param o2
      *        The second grammar info.
-     * @return A negative integer if the first grammar is considered "smaller",
-     *         a positive integer if it is considered "greater" and zero
-     *         otherwise.
+     * @return A negative integer if the first grammar is considered "smaller", a positive integer
+     *         if it is considered "greater" and zero otherwise.
      */
     public int compare (final GrammarInfo o1, final GrammarInfo o2)
     {

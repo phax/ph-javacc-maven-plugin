@@ -26,21 +26,20 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
-import javax.annotation.Nullable;
-
 import org.codehaus.plexus.util.StringUtils;
 import org.codehaus.plexus.util.cli.CommandLineUtils;
 import org.codehaus.plexus.util.cli.Commandline;
 import org.codehaus.plexus.util.cli.StreamConsumer;
+
+import jakarta.annotation.Nullable;
 
 /**
  * Runs the <code>main()</code> method of some tool in a forked JVM.
  *
  * @author Benjamin Bentmann
  * @version $Id: ForkedJvm.java 7758 2008-09-29 20:06:33Z bentmann $
- * @see <a href=
- *      "http://java.sun.com/javase/6/docs/technotes/tools/windows/java.html">java
- *      - The Java Application Launcher</a>
+ * @see <a href= "http://java.sun.com/javase/6/docs/technotes/tools/windows/java.html">java - The
+ *      Java Application Launcher</a>
  */
 class ForkedJvm
 {
@@ -70,14 +69,12 @@ class ForkedJvm
   private final Set <String> m_aClassPathEntries = new LinkedHashSet <> ();
 
   /**
-   * The qualified name of the class on which to invoke the <code>main()</code>
-   * method.
+   * The qualified name of the class on which to invoke the <code>main()</code> method.
    */
   private String mainClass;
 
   /**
-   * The command line arguments to pass to the <code>main()</code> method, given
-   * as strings.
+   * The command line arguments to pass to the <code>main()</code> method, given as strings.
    */
   private final List <String> cmdLineArgs = new ArrayList <> ();
 
@@ -103,8 +100,8 @@ class ForkedJvm
    * Sets the working directory for the forked JVM.
    *
    * @param directory
-   *        The working directory for the forked JVM, may be <code>null</code>
-   *        to inherit the working directory of the current JVM.
+   *        The working directory for the forked JVM, may be <code>null</code> to inherit the
+   *        working directory of the current JVM.
    */
   public void setWorkingDirectory (final File directory)
   {
@@ -112,8 +109,7 @@ class ForkedJvm
   }
 
   /**
-   * Sets the stream consumer used to handle messages from
-   * <code>System.out</code>.
+   * Sets the stream consumer used to handle messages from <code>System.out</code>.
    *
    * @param consumer
    *        The stream consumer, may be <code>null</code> to discard the output.
@@ -124,8 +120,7 @@ class ForkedJvm
   }
 
   /**
-   * Sets the stream consumer used to handle messages from
-   * <code>System.err</code>.
+   * Sets the stream consumer used to handle messages from <code>System.err</code>.
    *
    * @param consumer
    *        The stream consumer, may be <code>null</code> to discard the output.
@@ -172,8 +167,7 @@ class ForkedJvm
   }
 
   /**
-   * Adds the source JAR of the specified class/interface to the class path of
-   * the forked JVM.
+   * Adds the source JAR of the specified class/interface to the class path of the forked JVM.
    *
    * @param type
    *        The class/interface to add, may be <code>null</code>.
@@ -188,8 +182,7 @@ class ForkedJvm
    *
    * @param type
    *        The class/interface to find, may be <code>null</code>.
-   * @return The absolute path to the class source location or <code>null</code>
-   *         if unknown.
+   * @return The absolute path to the class source location or <code>null</code> if unknown.
    */
   private static File _getClassSource (final Class <?> type)
   {
@@ -205,10 +198,8 @@ class ForkedJvm
    * Gets the JAR file or directory that contains the specified class.
    *
    * @param className
-   *        The qualified name of the class/interface to find, may be
-   *        <code>null</code>.
-   * @return The absolute path to the class source location or <code>null</code>
-   *         if unknown.
+   *        The qualified name of the class/interface to find, may be <code>null</code>.
+   * @return The absolute path to the class source location or <code>null</code> if unknown.
    */
   private static File _getClassSource (final String className)
   {
@@ -226,10 +217,8 @@ class ForkedJvm
    * @param resource
    *        The absolute name of the resource to find, may be <code>null</code>.
    * @param loader
-   *        The class loader to use for searching the resource, may be
-   *        <code>null</code>.
-   * @return The absolute path to the resource location or <code>null</code> if
-   *         unknown.
+   *        The class loader to use for searching the resource, may be <code>null</code>.
+   * @return The absolute path to the resource location or <code>null</code> if unknown.
    */
   @Nullable
   private static File _getResourceSource (final String resource, final ClassLoader loader)
@@ -251,13 +240,11 @@ class ForkedJvm
   }
 
   /**
-   * Sets the qualified name of the class on which to invoke the
-   * <code>main()</code> method. The source of the specified class will
-   * automatically be added to the class path of the forked JVM.
+   * Sets the qualified name of the class on which to invoke the <code>main()</code> method. The
+   * source of the specified class will automatically be added to the class path of the forked JVM.
    *
    * @param name
-   *        The qualified name of the class on which to invoke the
-   *        <code>main()</code> method.
+   *        The qualified name of the class on which to invoke the <code>main()</code> method.
    */
   public void setMainClass (final String name)
   {
@@ -266,13 +253,11 @@ class ForkedJvm
   }
 
   /**
-   * Sets the class on which to invoke the <code>main()</code> method. The
-   * source of the specified class will automatically be added to the class path
-   * of the forked JVM.
+   * Sets the class on which to invoke the <code>main()</code> method. The source of the specified
+   * class will automatically be added to the class path of the forked JVM.
    *
    * @param type
-   *        The class on which to invoke the <code>main()</code> method, may be
-   *        <code>null</code>.
+   *        The class on which to invoke the <code>main()</code> method, may be <code>null</code>.
    */
   public void setMainClass (final Class <?> type)
   {
@@ -291,8 +276,7 @@ class ForkedJvm
   }
 
   /**
-   * Adds the specified argument to the command line for the <code>main()</code>
-   * method.
+   * Adds the specified argument to the command line for the <code>main()</code> method.
    *
    * @param argument
    *        The argument to add, may be <code>null</code>.
@@ -306,8 +290,7 @@ class ForkedJvm
   }
 
   /**
-   * Adds the specified file path to the command line for the
-   * <code>main()</code> method.
+   * Adds the specified file path to the command line for the <code>main()</code> method.
    *
    * @param argument
    *        The argument to add, may be <code>null</code>.
@@ -321,8 +304,7 @@ class ForkedJvm
   }
 
   /**
-   * Adds the specified arguments to the command line for the
-   * <code>main()</code> method.
+   * Adds the specified arguments to the command line for the <code>main()</code> method.
    *
    * @param arguments
    *        The arguments to add, may be <code>null</code>.
@@ -339,18 +321,17 @@ class ForkedJvm
   }
 
   /**
-   * Creates the command line for the new JVM based on the current
-   * configuration.
+   * Creates the command line for the new JVM based on the current configuration.
    *
    * @return The command line used to fork the JVM, never <code>null</code>.
    */
   private Commandline _createCommandLine ()
   {
     /*
-     * NOTE: This method is designed to work with plexus-utils:1.1 which is used
-     * by all Maven versions before 2.0.6 regardless of our plugin dependency.
-     * Therefore, we use setWorkingDirectory(String) rather than
-     * setWorkingDirectory(File) and addArguments() rather than createArg().
+     * NOTE: This method is designed to work with plexus-utils:1.1 which is used by all Maven
+     * versions before 2.0.6 regardless of our plugin dependency. Therefore, we use
+     * setWorkingDirectory(String) rather than setWorkingDirectory(File) and addArguments() rather
+     * than createArg().
      */
 
     final Commandline cli = new Commandline ();

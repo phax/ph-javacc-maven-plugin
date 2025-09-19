@@ -196,7 +196,7 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-plugin-plugin</artifactId>
         <configuration>
-          <goalPrefix>tulipcc</goalPrefix>
+          <goalPrefix>ph-javacc</goalPrefix>
         </configuration>
         <executions>
           <execution>
@@ -225,6 +225,7 @@
                 <exclude>**/*.bsh</exclude>
                 <exclude>**/*.jtb</exclude>
                 <exclude>**/*.txt</exclude>
+                <exclude>**/jjdoc-report_de.properties</exclude>
                 <exclude>docs/**</exclude>
               </excludes>
             </licenseSet>

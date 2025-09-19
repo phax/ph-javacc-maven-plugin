@@ -113,43 +113,56 @@ Supported goals with the respective parameters are:
 
 # News and noteworthy
 
-* v5.0.0 - 2025-09-19
-    * Updated to ParserGeneratorCC 2.0.0
-    * Requires at least Java 17
-* v4.1.5 - 2022-01-10
-    * Updated to ParserGeneratorCC 1.1.4
-* v4.1.4 - 2020-05-13
-    * Updated to ParserGeneratorCC 1.1.3
-* v4.1.3 - 2019-05-02
-    * Updated to ParserGeneratorCC 1.1.2
-* v4.1.2 - 2019-01-28
-    * Updated to ParserGeneratorCC 1.1.1 - had an error in the modern templates
-* v4.1.1 - 2018-12-03
-    * JJDoc now runs without forking
-    * Made plugin threadsafe (see [issue #14](https://github.com/phax/tulipcc-maven-plugin/issues/14)) 
-* v4.1.0 - 2018-10-25
-    * Updated to ParserGeneratorCC 1.1.0 - INCOMPATIBLE!
-    * Changed PGCC templates - INCOMPATIBLE!
-    * Added `OUTPUT_ENCODING` option
-* v4.0.3 - 2018-03-09
-    * Fixed error passing `JAVA_TEMPLATE_TYPE` option in jjtree-java goal
-* v4.0.2 - 2018-03-09
-    * Removed `STATIC` option - INCOMPATIBLE!
-    * Added `JAVA_TEMPLATE_TYPE` option
-* v4.0.1 - 2018-01-08
-    * Updated to ParserGeneratorCC 1.0.2 so that this plugin can be used to build ParserGeneratorCC
-    * Minimum JDK version is 1.5
-* v4.0.0 - 2018-01-05
-    * Switched to https://github.com/phax/ParserGeneratorCC a fork of JavaCC 7.0.3
-* v3.0.0 - 2017-11-07
-    * Changed minimum requirement to JDK 8
-    * Requires Maven 3 for execution
-    * Using JavaCC 7.0.3
-    * Removed deprecated classes
-* v2.8.2 - 2016-11-19
-    * Fixing https://github.com/javacc/javacc/issues/2 locally
-* v2.8.1 - 2016-07-13
-    * Fixed a problem with the code generation for "modern" Java template
+v 5.0.0 - 2025-09-19
+* Updated to ParserGeneratorCC 2.0.0
+* Requires at least Java 17
+
+v 4.1.5 - 2022-01-10
+* Updated to ParserGeneratorCC 1.1.4
+
+v 4.1.4 - 2020-05-13
+* Updated to ParserGeneratorCC 1.1.3
+
+v 4.1.3 - 2019-05-02
+* Updated to ParserGeneratorCC 1.1.2
+
+v 4.1.2 - 2019-01-28
+* Updated to ParserGeneratorCC 1.1.1 - had an error in the modern templates
+
+v 4.1.1 - 2018-12-03
+* JJDoc now runs without forking
+* Made plugin threadsafe (see [issue #14](https://github.com/phax/tulipcc-maven-plugin/issues/14)) 
+
+v 4.1.0 - 2018-10-25
+* Updated to ParserGeneratorCC 1.1.0 - INCOMPATIBLE!
+* Changed PGCC templates - INCOMPATIBLE!
+* Added `OUTPUT_ENCODING` option
+
+v 4.0.3 - 2018-03-09
+* Fixed error passing `JAVA_TEMPLATE_TYPE` option in jjtree-java goal
+
+v 4.0.2 - 2018-03-09
+* Removed `STATIC` option - INCOMPATIBLE!
+* Added `JAVA_TEMPLATE_TYPE` option
+
+v 4.0.1 - 2018-01-08
+* Updated to ParserGeneratorCC 1.0.2 so that this plugin can be used to build ParserGeneratorCC
+* Minimum JDK version is 1.5
+
+v 4.0.0 - 2018-01-05
+* Switched to https://github.com/phax/ParserGeneratorCC a fork of JavaCC 7.0.3
+
+v 3.0.0 - 2017-11-07
+* Changed minimum requirement to JDK 8
+* Requires Maven 3 for execution
+* Using JavaCC 7.0.3
+* Removed deprecated classes
+
+v 2.8.2 - 2016-11-19
+* Fixing https://github.com/javacc/javacc/issues/2 locally
+
+v 2.8.1 - 2016-07-13
+* Fixed a problem with the code generation for "modern" Java template
 
 ---
 

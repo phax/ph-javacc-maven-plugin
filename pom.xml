@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-    Copyright (C) 2014-2025 Philip Helger (www.helger.com)
+    Copyright 2001-2008 (C) The original author or authors.
+    Copyright 2008-2016 (C) The Codehaus (http://codehaus.org/)
+    Copyright (C) 2016-2025 Philip Helger (www.helger.com)
     philip[at]helger[dot]com
 
     Licensed under the Apache License, Version 2.0 (the "License");
@@ -215,12 +217,18 @@
         <groupId>com.mycila</groupId>
         <artifactId>license-maven-plugin</artifactId>
         <configuration>
-          <excludes>
-            <exclude>**.txt</exclude>
-            <exclude>src/**</exclude>
-            <exclude>docs/**</exclude>
-            <exclude>it-local-repo/**</exclude>
-          </excludes>
+          <licenseSets>
+            <licenseSet>
+              <excludes>
+                <exclude>**/LICENSE</exclude>
+                <exclude>**/NOTICE</exclude>
+                <exclude>**/*.bsh</exclude>
+                <exclude>**/*.jtb</exclude>
+                <exclude>**/*.txt</exclude>
+                <exclude>docs/**</exclude>
+              </excludes>
+            </licenseSet>
+          </licenseSets>
         </configuration>
       </plugin>
     </plugins>

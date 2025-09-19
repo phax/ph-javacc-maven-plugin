@@ -24,20 +24,20 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 /**
  * Assists in handling of URLs.
  *
  * @author Benjamin Bentmann
- * @version $Id: UrlUtils.java 7084 2008-05-30 08:01:52Z bentmann $
  */
-class UrlUtils
+final class UrlUtils
 {
 
   /**
    * The UTF-8 character set, used to decode octets in URLs.
    */
-  private static final Charset UTF8 = Charset.forName ("UTF-8");
+  private static final Charset UTF8 = StandardCharsets.UTF_8;
 
   /**
    * The protocol prefix for "jar:" URLs.
@@ -54,18 +54,20 @@ class UrlUtils
    */
   private static final String JAR_FILE = JAR + FILE;
 
+  private UrlUtils ()
+  {}
+
   /**
-   * Gets the absolute filesystem path to the class path root for the specified
-   * resource. The root is either a JAR file or a directory with loose class
-   * files. If the URL does not use a supported protocol, an exception will be
-   * thrown.
+   * Gets the absolute filesystem path to the class path root for the specified resource. The root
+   * is either a JAR file or a directory with loose class files. If the URL does not use a supported
+   * protocol, an exception will be thrown.
    *
    * @param url
    *        The URL to the resource, may be <code>null</code>.
    * @param resource
    *        The name of the resource, must not be <code>null</code>.
-   * @return The absolute filesystem path to the class path root of the resource
-   *         or <code>null</code> if the input URL was <code>null</code>.
+   * @return The absolute filesystem path to the class path root of the resource or
+   *         <code>null</code> if the input URL was <code>null</code>.
    */
   public static File getResourceRoot (final URL url, final String resource)
   {
@@ -73,7 +75,7 @@ class UrlUtils
     if (url != null)
     {
       final String spec = url.toExternalForm ();
-      if ((JAR_FILE).regionMatches (true, 0, spec, 0, JAR_FILE.length ()))
+      if (JAR_FILE.regionMatches (true, 0, spec, 0, JAR_FILE.length ()))
       {
         URL jar;
         try
@@ -101,18 +103,16 @@ class UrlUtils
   }
 
   /**
-   * Decodes the specified URL as per RFC 3986, i.e. transforms percent-encoded
-   * octets to characters by decoding with the UTF-8 character set. This
-   * function is primarily intended for usage with {@link java.net.URL} which
-   * unfortunately does not enforce proper URLs. As such, this method will
-   * leniently accept invalid characters or malformed percent-encoded octets and
-   * simply pass them literally through to the result string. Except for rare
-   * edge cases, this will make unencoded URLs pass through unaltered.
+   * Decodes the specified URL as per RFC 3986, i.e. transforms percent-encoded octets to characters
+   * by decoding with the UTF-8 character set. This function is primarily intended for usage with
+   * {@link java.net.URL} which unfortunately does not enforce proper URLs. As such, this method
+   * will leniently accept invalid characters or malformed percent-encoded octets and simply pass
+   * them literally through to the result string. Except for rare edge cases, this will make
+   * unencoded URLs pass through unaltered.
    *
    * @param url
    *        The URL to decode, may be <code>null</code>.
-   * @return The decoded URL or <code>null</code> if the input was
-   *         <code>null</code>.
+   * @return The decoded URL or <code>null</code> if the input was <code>null</code>.
    */
   public static String decodeUrl (final String url)
   {
@@ -120,7 +120,7 @@ class UrlUtils
     if (url != null && url.indexOf ('%') >= 0)
     {
       final int n = url.length ();
-      final StringBuffer buffer = new StringBuffer ();
+      final StringBuilder buffer = new StringBuilder ();
       final ByteBuffer bytes = ByteBuffer.allocate (n);
       for (int i = 0; i < n;)
       {

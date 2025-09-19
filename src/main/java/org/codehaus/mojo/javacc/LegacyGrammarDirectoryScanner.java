@@ -22,16 +22,12 @@ package org.codehaus.mojo.javacc;
 import java.io.File;
 
 /**
- * Scans source directories for JavaCC grammar files. This scanner supports
- * {@link JJTreeMojo} and {@link JTBMojo} which perform timestamp checking
- * against copies of the input grammars rather than against the generated parser
- * files. Hence, the directory configured by
- * code>setOutputDirectory(File)</code> is taken to be the output directory for
- * the timestamp files.
+ * Scans source directories for JavaCC grammar files. This scanner supports {@link JJTreeMojo} and
+ * {@link JTBMojo} which perform timestamp checking against copies of the input grammars rather than
+ * against the generated parser files. Hence, the directory configured by
+ * code>setOutputDirectory(File)</code> is taken to be the output directory for the timestamp files.
  *
  * @author Benjamin Bentmann
- * @version $Id: LegacyGrammarDirectoryScanner.java 6251 2008-02-08 13:56:51Z
- *          bentmann $
  */
 class LegacyGrammarDirectoryScanner extends GrammarDirectoryScanner
 {

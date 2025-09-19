@@ -30,8 +30,6 @@ import org.codehaus.plexus.util.DirectoryScanner;
  * Scans source directories for JavaCC grammar files.
  *
  * @author Benjamin Bentmann
- * @version $Id: GrammarDirectoryScanner.java 6282 2008-02-09 23:49:06Z bentmann
- *          $
  */
 class GrammarDirectoryScanner
 {
@@ -42,22 +40,19 @@ class GrammarDirectoryScanner
   private final DirectoryScanner scanner;
 
   /**
-   * The absolute path to the output directory used to detect stale target files
-   * by timestamp checking, may be <code>null</code> if no stale detection
-   * should be performed.
+   * The absolute path to the output directory used to detect stale target files by timestamp
+   * checking, may be <code>null</code> if no stale detection should be performed.
    */
   private File outputDirectory;
 
   /**
-   * The granularity in milliseconds of the last modification date for testing
-   * whether a grammar file needs recompilation because its corresponding target
-   * file is stale.
+   * The granularity in milliseconds of the last modification date for testing whether a grammar
+   * file needs recompilation because its corresponding target file is stale.
    */
   private int staleMillis;
 
   /**
-   * A set of grammar infos describing the included grammar files, must never be
-   * <code>null</code>.
+   * A set of grammar infos describing the included grammar files, must never be <code>null</code>.
    */
   private final List <GrammarInfo> includedGrammars;
 
@@ -72,12 +67,11 @@ class GrammarDirectoryScanner
   }
 
   /**
-   * Sets the absolute path to the source directory to scan for grammar files.
-   * This directory must exist or the scanner will report an error.
+   * Sets the absolute path to the source directory to scan for grammar files. This directory must
+   * exist or the scanner will report an error.
    *
    * @param directory
-   *        The absolute path to the source directory to scan, must not be
-   *        <code>null</code>.
+   *        The absolute path to the source directory to scan, must not be <code>null</code>.
    */
   public void setSourceDirectory (final File directory)
   {
@@ -92,8 +86,7 @@ class GrammarDirectoryScanner
    * Sets the Ant-like inclusion patterns.
    *
    * @param includes
-   *        The set of Ant-like inclusion patterns, may be <code>null</code> to
-   *        include all files.
+   *        The set of Ant-like inclusion patterns, may be <code>null</code> to include all files.
    */
   public void setIncludes (final String [] includes)
   {
@@ -104,8 +97,7 @@ class GrammarDirectoryScanner
    * Sets the Ant-like exclusion patterns.
    *
    * @param excludes
-   *        The set of Ant-like exclusion patterns, may be <code>null</code> to
-   *        exclude no files.
+   *        The set of Ant-like exclusion patterns, may be <code>null</code> to exclude no files.
    */
   public void setExcludes (final String [] excludes)
   {
@@ -114,13 +106,11 @@ class GrammarDirectoryScanner
   }
 
   /**
-   * Sets the absolute path to the output directory used to detect stale target
-   * files.
+   * Sets the absolute path to the output directory used to detect stale target files.
    *
    * @param directory
-   *        The absolute path to the output directory used to detect stale
-   *        target files by timestamp checking, may be <code>null</code> if no
-   *        stale detection should be performed.
+   *        The absolute path to the output directory used to detect stale target files by timestamp
+   *        checking, may be <code>null</code> if no stale detection should be performed.
    */
   public void setOutputDirectory (final File directory)
   {
@@ -130,13 +120,11 @@ class GrammarDirectoryScanner
   }
 
   /**
-   * Sets the granularity in milliseconds of the last modification date for
-   * stale file detection.
+   * Sets the granularity in milliseconds of the last modification date for stale file detection.
    *
    * @param milliseconds
-   *        The granularity in milliseconds of the last modification date for
-   *        testing whether a grammar file needs recompilation because its
-   *        corresponding target file is stale.
+   *        The granularity in milliseconds of the last modification date for testing whether a
+   *        grammar file needs recompilation because its corresponding target file is stale.
    */
   public void setStaleMillis (final int milliseconds)
   {
@@ -144,10 +132,9 @@ class GrammarDirectoryScanner
   }
 
   /**
-   * Scans the source directory for grammar files that match at least one
-   * inclusion pattern but no exclusion pattern, optionally performing timestamp
-   * checking to exclude grammars whose corresponding parser files are up to
-   * date.
+   * Scans the source directory for grammar files that match at least one inclusion pattern but no
+   * exclusion pattern, optionally performing timestamp checking to exclude grammars whose
+   * corresponding parser files are up to date.
    *
    * @throws IOException
    *         If a grammar file could not be analyzed for metadata.
@@ -186,14 +173,13 @@ class GrammarDirectoryScanner
    * Determines the output files corresponding to the specified grammar file.
    *
    * @param targetDirectory
-   *        The absolute path to the output directory for the target files, must
-   *        not be <code>null</code>.
+   *        The absolute path to the output directory for the target files, must not be
+   *        <code>null</code>.
    * @param grammarFile
-   *        The path to the grammar file, relative to the scanned source
-   *        directory, must not be <code>null</code>.
+   *        The path to the grammar file, relative to the scanned source directory, must not be
+   *        <code>null</code>.
    * @param grammarInfo
-   *        The grammar info describing the grammar file, must not be
-   *        <code>null</code>
+   *        The grammar info describing the grammar file, must not be <code>null</code>
    * @return A file array with target files, never <code>null</code>.
    */
   protected File [] getTargetFiles (final File targetDirectory, final String grammarFile, final GrammarInfo grammarInfo)
@@ -203,12 +189,11 @@ class GrammarDirectoryScanner
   }
 
   /**
-   * Gets the grammar files that were included by the scanner during the last
-   * invocation of <code>scan()</code>
+   * Gets the grammar files that were included by the scanner during the last invocation of
+   * <code>scan()</code>
    *
-   * @return An array of grammar infos describing the included grammar files,
-   *         will be empty if no files were included but is never
-   *         <code>null</code>.
+   * @return An array of grammar infos describing the included grammar files, will be empty if no
+   *         files were included but is never <code>null</code>.
    */
   public GrammarInfo [] getIncludedGrammars ()
   {

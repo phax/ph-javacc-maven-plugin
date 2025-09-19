@@ -27,12 +27,10 @@ import java.util.regex.Pattern;
 import org.codehaus.plexus.util.FileUtils;
 
 /**
- * This bean holds some output related information about a JavaCC grammar file.
- * It assists in determining the exact output location for the generated parser
- * file.
+ * This bean holds some output related information about a JavaCC grammar file. It assists in
+ * determining the exact output location for the generated parser file.
  *
  * @author Benjamin Bentmann
- * @version $Id: GrammarInfo.java 8156 2008-11-26 18:20:19Z bentmann $
  */
 class GrammarInfo
 {
@@ -43,8 +41,7 @@ class GrammarInfo
   private final File sourceDirectory;
 
   /**
-   * The path to the grammar file (relative to its source directory, e.g.
-   * "grammars/MyParser.jj").
+   * The path to the grammar file (relative to its source directory, e.g. "grammars/MyParser.jj").
    */
   private final String grammarFile;
 
@@ -54,8 +51,8 @@ class GrammarInfo
   private final String parserPackage;
 
   /**
-   * The path to the directory of the parser package (relative to a source root
-   * directory, e.g. "org/apache").
+   * The path to the directory of the parser package (relative to a source root directory, e.g.
+   * "org/apache").
    */
   private final String parserDirectory;
 
@@ -65,8 +62,8 @@ class GrammarInfo
   private final String parserName;
 
   /**
-   * The path to the generated parser file (relative to a source root directory,
-   * e.g. "org/apache/MyParser.java").
+   * The path to the generated parser file (relative to a source root directory, e.g.
+   * "org/apache/MyParser.java").
    */
   private final String parserFile;
 
@@ -74,11 +71,11 @@ class GrammarInfo
    * Creates a new info from the specified grammar file.
    *
    * @param sourceDir
-   *        The absolute path to the base directory in which the grammar file
-   *        resides, must not be <code>null</code>.
+   *        The absolute path to the base directory in which the grammar file resides, must not be
+   *        <code>null</code>.
    * @param inputFile
-   *        The path to the grammar file (relative to the source directory),
-   *        must not be <code>null</code>.
+   *        The path to the grammar file (relative to the source directory), must not be
+   *        <code>null</code>.
    * @throws IOException
    *         If reading the grammar file failed.
    */
@@ -160,12 +157,11 @@ class GrammarInfo
   }
 
   /**
-   * Gets the absolute path to the base directory in which the grammar file
-   * resides. Note that this is not necessarily the parent directory of the
-   * grammar file.
+   * Gets the absolute path to the base directory in which the grammar file resides. Note that this
+   * is not necessarily the parent directory of the grammar file.
    *
-   * @return The absolute path to the base directory in which the grammar file
-   *         resides, never <code>null</code>.
+   * @return The absolute path to the base directory in which the grammar file resides, never
+   *         <code>null</code>.
    */
   public File getSourceDirectory ()
   {
@@ -185,8 +181,8 @@ class GrammarInfo
   /**
    * Gets the path to the grammar file (relative to its source directory).
    *
-   * @return The path to the grammar file (relative to its source directory),
-   *         never <code>null</code>.
+   * @return The path to the grammar file (relative to its source directory), never
+   *         <code>null</code>.
    */
   public String getRelativeGrammarFile ()
   {
@@ -194,18 +190,16 @@ class GrammarInfo
   }
 
   /**
-   * Resolves the specified package name against the package name of the parser
-   * generated from this grammar. To reference the parser package, the input
-   * string may use the prefix "*". For example, if the package for the parser
-   * is "org.apache" and the input string is "*.node", the resolved package is
-   * "org.apache.node". The period after the asterisk is significant, i.e. in
-   * the previous example the input string "*node" would resolve to
-   * "org.apachenode".
+   * Resolves the specified package name against the package name of the parser generated from this
+   * grammar. To reference the parser package, the input string may use the prefix "*". For example,
+   * if the package for the parser is "org.apache" and the input string is "*.node", the resolved
+   * package is "org.apache.node". The period after the asterisk is significant, i.e. in the
+   * previous example the input string "*node" would resolve to "org.apachenode".
    *
    * @param packageName
    *        The package name to resolve, may be <code>null</code>.
-   * @return The resolved package name or <code>null</code> if the input string
-   *         was <code>null</code>.
+   * @return The resolved package name or <code>null</code> if the input string was
+   *         <code>null</code>.
    */
   public String resolvePackageName (final String packageName)
   {
@@ -224,9 +218,8 @@ class GrammarInfo
   /**
    * Gets the declared package for the generated parser (e.g. "org.apache").
    *
-   * @return The declared package for the generated parser (e.g. "org.apache")
-   *         or an empty string if no package declaration was found, never
-   *         <code>null</code>.
+   * @return The declared package for the generated parser (e.g. "org.apache") or an empty string if
+   *         no package declaration was found, never <code>null</code>.
    */
   public String getParserPackage ()
   {
@@ -234,12 +227,12 @@ class GrammarInfo
   }
 
   /**
-   * Gets the path to the directory of the parser package (relative to a source
-   * root directory, e.g. "org/apache").
+   * Gets the path to the directory of the parser package (relative to a source root directory, e.g.
+   * "org/apache").
    *
-   * @return The path to the directory of the parser package (relative to a
-   *         source root directory, e.g. "org/apache") or an empty string if no
-   *         package declaration was found, never <code>null</code>.
+   * @return The path to the directory of the parser package (relative to a source root directory,
+   *         e.g. "org/apache") or an empty string if no package declaration was found, never
+   *         <code>null</code>.
    */
   public String getParserDirectory ()
   {
@@ -249,8 +242,7 @@ class GrammarInfo
   /**
    * Gets the simple name of the generated parser (e.g. "MyParser")
    *
-   * @return The simple name of the generated parser (e.g. "MyParser"), never
-   *         <code>null</code>.
+   * @return The simple name of the generated parser (e.g. "MyParser"), never <code>null</code>.
    */
   public String getParserName ()
   {
@@ -261,8 +253,8 @@ class GrammarInfo
    * Gets the path to the parser file (relative to a source root directory, e.g.
    * "org/apache/MyParser.java").
    *
-   * @return The path to the parser file (relative to a source root directory,
-   *         e.g. "org/apache/MyParser.java"), never <code>null</code>.
+   * @return The path to the parser file (relative to a source root directory, e.g.
+   *         "org/apache/MyParser.java"), never <code>null</code>.
    */
   public String getParserFile ()
   {
@@ -270,8 +262,7 @@ class GrammarInfo
   }
 
   /**
-   * Gets a string representation of this bean. This value is for debugging
-   * purposes only.
+   * Gets a string representation of this bean. This value is for debugging purposes only.
    *
    * @return A string representation of this bean.
    */

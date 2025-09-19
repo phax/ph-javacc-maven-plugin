@@ -33,7 +33,6 @@ import com.helger.base.state.ESuccess;
  * Provides a facade for the mojos to invoke JJDoc.
  *
  * @author Paul Gier, Benjamin Bentmann
- * @version $Id: JJDoc.java 10603 2009-09-06 15:05:08Z bentmann $
  * @see <a href="https://javacc.dev.java.net/doc/JJDoc.html">JJDoc Reference</a>
  */
 class JJDoc extends AbstractToolFacade
@@ -79,12 +78,10 @@ class JJDoc extends AbstractToolFacade
   private Boolean oneTable;
 
   /**
-   * Sets the absolute path to the grammar file to pass into JJDoc for
-   * documentation.
+   * Sets the absolute path to the grammar file to pass into JJDoc for documentation.
    *
    * @param value
-   *        The absolute path to the grammar file to pass into JJDoc for
-   *        documentation.
+   *        The absolute path to the grammar file to pass into JJDoc for documentation.
    */
   public void setInputFile (final File value)
   {
@@ -114,8 +111,8 @@ class JJDoc extends AbstractToolFacade
    * Sets the option GRAMMAR_ENCODING.
    *
    * @param value
-   *        The option value, may be <code>null</code> to use the value provided
-   *        in the grammar or the default.
+   *        The option value, may be <code>null</code> to use the value provided in the grammar or
+   *        the default.
    */
   public void setGrammarEncoding (final String value)
   {
@@ -126,8 +123,8 @@ class JJDoc extends AbstractToolFacade
    * Sets the option OUTPUT_ENCODING.
    *
    * @param value
-   *        The option value, may be <code>null</code> to use the value provided
-   *        in the grammar or the default.
+   *        The option value, may be <code>null</code> to use the value provided in the grammar or
+   *        the default.
    */
   public void setOutputEncoding (final String value)
   {
@@ -135,8 +132,7 @@ class JJDoc extends AbstractToolFacade
   }
 
   /**
-   * Sets the option CSS, i.e the hypertext reference to a CSS file for the
-   * generated HTML output.
+   * Sets the option CSS, i.e the hypertext reference to a CSS file for the generated HTML output.
    *
    * @param value
    *        The option value, may be <code>null</code> to use the default style.
@@ -209,8 +205,8 @@ class JJDoc extends AbstractToolFacade
   }
 
   /**
-   * Assembles the command line arguments for the invocation of JJDoc according
-   * to the configuration.
+   * Assembles the command line arguments for the invocation of JJDoc according to the
+   * configuration.
    *
    * @return A string array that represents the arguments to use for JJDoc.
    */
@@ -289,8 +285,8 @@ class JJDoc extends AbstractToolFacade
     private static final String WARN_PREFIX = "Warning: ";
 
     /**
-     * Determines if the stream consumer is being used for
-     * <code>System.out</code> or <code>System.err</code>.
+     * Determines if the stream consumer is being used for <code>System.out</code> or
+     * <code>System.err</code>.
      */
     private final boolean err;
 
@@ -298,8 +294,7 @@ class JJDoc extends AbstractToolFacade
      * Single param constructor.
      *
      * @param error
-     *        If set to <code>true</code>, all consumed lines will be logged at
-     *        the error level.
+     *        If set to <code>true</code>, all consumed lines will be logged at the error level.
      */
     public MojoLogStreamConsumer (final boolean error)
     {

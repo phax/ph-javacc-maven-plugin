@@ -35,7 +35,6 @@ import jakarta.annotation.Nonnull;
  * Provides a facade for the mojos to invoke JavaCC related tools.
  *
  * @author Benjamin Bentmann
- * @version $Id: ToolFacade.java 7758 2008-09-29 20:06:33Z bentmann $
  */
 abstract class AbstractToolFacade
 {
@@ -52,8 +51,7 @@ abstract class AbstractToolFacade
    * Sets the logger used to output diagnostic messages.
    *
    * @param logger
-   *        The logger used to output diagnostic messages, may be
-   *        <code>null</code>.
+   *        The logger used to output diagnostic messages, may be <code>null</code>.
    */
   public void setLog (final Log logger)
   {
@@ -63,8 +61,7 @@ abstract class AbstractToolFacade
   /**
    * Gets the logger used to output diagnostic messages.
    *
-   * @return The logger used to output diagnostic messages, never
-   *         <code>null</code>.
+   * @return The logger used to output diagnostic messages, never <code>null</code>.
    */
   protected final Log getLog ()
   {

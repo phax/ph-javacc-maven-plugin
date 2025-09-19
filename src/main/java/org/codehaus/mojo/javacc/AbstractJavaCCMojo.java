@@ -29,6 +29,7 @@ import java.util.List;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
+import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.codehaus.plexus.util.FileUtils;
 import org.codehaus.plexus.util.SelectorUtils;
@@ -42,18 +43,14 @@ import jakarta.annotation.Nonnull;
  * Provides common services for all mojos that compile JavaCC grammar files.
  *
  * @author jruiz@exist.com
- * @author jesse <jesse.mcconnell@gmail.com>
- * @version $Id: AbstractJavaCCMojo.java 10774 2009-09-26 11:40:48Z bentmann $
+ * @author jesse.mcconnell@gmail.com
  */
 public abstract class AbstractJavaCCMojo extends AbstractMojo
 {
   /**
    * The current Maven project.
-   *
-   * @parameter default-value="${project}"
-   * @readonly
-   * @required
    */
+  @Parameter (property = "project", required = true, readonly = true)
   private MavenProject project;
 
   /**
@@ -67,42 +64,38 @@ public abstract class AbstractJavaCCMojo extends AbstractMojo
    * The Java version for which to generate source code. Default value is <code>1.5</code> for
    * plugin version 2.6+ and <code>1.4</code> in older versions.
    *
-   * @parameter property=jdkVersion
    * @since 2.4
    */
+  @Parameter (property = "jdkVersion")
   private String jdkVersion;
 
   /**
    * The number of tokens to look ahead before making a decision at a choice point during parsing.
    * The default value is <code>1</code>.
-   *
-   * @parameter property=lookAhead
    */
+  @Parameter (property = "lookAhead")
   private Integer lookAhead;
 
   /**
    * This is the number of tokens considered in checking choices of the form "A | B | ..." for
    * ambiguity. Default value is <code>2</code>.
-   *
-   * @parameter property=choiceAmbiguityCheck
    */
+  @Parameter (property = "choiceAmbiguityCheck")
   private Integer choiceAmbiguityCheck;
 
   /**
    * This is the number of tokens considered in checking all other kinds of choices (i.e., of the
    * forms "(A)*", "(A)+", and "(A)?") for ambiguity. Default value is <code>1</code>.
-   *
-   * @parameter property=otherAmbiguityCheck
    */
+  @Parameter (property = "otherAmbiguityCheck")
   private Integer otherAmbiguityCheck;
 
   /**
    * This option is used to obtain debugging information from the generated parser. Setting this
    * option to <code>true</code> causes the parser to generate a trace of its actions. Default value
    * is <code>false</code>.
-   *
-   * @parameter property=debugParser
    */
+  @Parameter (property = "debugParser")
   private Boolean debugParser;
 
   /**
@@ -110,50 +103,44 @@ public abstract class AbstractJavaCCMojo extends AbstractMojo
    * <code>true</code> causes the parser to generate all the tracing information it does when the
    * option <code>debugParser</code> is <code>true</code>, and in addition, also causes it to
    * generated a trace of actions performed during lookahead operation.
-   *
-   * @parameter property=debugLookAhead
    */
+  @Parameter (property = "debugLookAhead")
   private Boolean debugLookAhead;
 
   /**
    * This option is used to obtain debugging information from the generated token manager. Default
    * value is <code>false</code>.
-   *
-   * @parameter property=debugTokenManager
    */
+  @Parameter (property = "debugTokenManager")
   private Boolean debugTokenManager;
 
   /**
    * Setting it to <code>false</code> causes errors due to parse errors to be reported in somewhat
    * less detail. Default value is <code>true</code>.
-   *
-   * @parameter property=errorReporting
    */
+  @Parameter (property = "errorReporting")
   private Boolean errorReporting;
 
   /**
    * When set to <code>true</code>, the generated parser uses an input stream object that processes
    * Java Unicode escapes (<code>\</code><code>u</code> <i>xxxx</i>) before sending characters to
    * the token manager. Default value is <code>false</code>.
-   *
-   * @parameter property=javaUnicodeEscape
    */
+  @Parameter (property = "javaUnicodeEscape")
   private Boolean javaUnicodeEscape;
 
   /**
    * When set to <code>true</code>, the generated parser uses uses an input stream object that reads
    * Unicode files. By default, ASCII files are assumed. Default value is <code>false</code>.
-   *
-   * @parameter property=unicodeInput
    */
+  @Parameter (property = "unicodeInput")
   private Boolean unicodeInput;
 
   /**
    * Setting this option to <code>true</code> causes the generated token manager to ignore case in
    * the token specifications and the input files. Default value is <code>false</code>.
-   *
-   * @parameter property=ignoreCase
    */
+  @Parameter (property = "ignoreCase")
   private Boolean ignoreCase;
 
   /**
@@ -162,9 +149,8 @@ public abstract class AbstractJavaCCMojo extends AbstractMojo
    * <a href="https://javacc.dev.java.net/doc/apiroutines.html">Java Compiler Compiler API</a>) will
    * cause a call to a user-defined method <code>CommonTokenAction()</code> after the token has been
    * scanned in by the token manager. Default value is <code>false</code>.
-   *
-   * @parameter property=commonTokenAction
    */
+  @Parameter (property = "commonTokenAction")
   private Boolean commonTokenAction;
 
   /**
@@ -172,9 +158,8 @@ public abstract class AbstractJavaCCMojo extends AbstractMojo
    * If this option is set to <code>true</code>, then the parser is generated to accept tokens from
    * any token manager of type <code>TokenManager</code> - this interface is generated into the
    * generated parser directory. Default value is <code>false</code>.
-   *
-   * @parameter property=userTokenManager
    */
+  @Parameter (property = "userTokenManager")
   private Boolean userTokenManager;
 
   /**
@@ -182,45 +167,41 @@ public abstract class AbstractJavaCCMojo extends AbstractMojo
    * reader as defined by the options <code>javaUnicodeEscape</code> and <code>unicodeInput</code>
    * or whether the token manager reads from a user-supplied implementation of
    * <code>CharStream</code>. Default value is <code>false</code>.
-   *
-   * @parameter property=userCharStream
    */
+  @Parameter (property = "userCharStream")
   private Boolean userCharStream;
 
   /**
    * A flag that controls whether the parser file (<code>*Parser.java</code>) should be generated or
    * not. If set to <code>false</code>, only the token manager is generated. Default value is
    * <code>true</code>.
-   *
-   * @parameter property=buildParser
    */
+  @Parameter (property = "buildParser")
   private Boolean buildParser;
 
   /**
    * A flag that controls whether the token manager file ( <code>*TokenManager.java</code>) should
    * be generated or not. Setting this to <code>false</code> can speed up the generation process if
    * only the parser part of the grammar changed. Default value is <code>true</code>.
-   *
-   * @parameter property=buildTokenManager
    */
+  @Parameter (property = "buildTokenManager")
   private Boolean buildTokenManager;
 
   /**
    * When set to <code>true</code>, the generated token manager will include a field called
    * <code>parser</code> that references the instantiating parser instance. Default value is
    * <code>false</code>.
-   *
-   * @parameter property=tokenManagerUsesParser
    */
+  @Parameter (property = "tokenManagerUsesParser")
   private Boolean tokenManagerUsesParser;
 
   /**
    * The name of the base class for the generated <code>Token</code> class. Default value is
    * <code>java.lang.Object</code>.
    *
-   * @parameter property=tokenExtends
    * @since 2.5
    */
+  @Parameter (property = "tokenExtends")
   private String tokenExtends;
 
   /**
@@ -229,66 +210,62 @@ public abstract class AbstractJavaCCMojo extends AbstractMojo
    * <code>public static Token newToken(int ofKind, String image)</code>. By default, tokens are
    * created by calling <code>Token.newToken()</code>.
    *
-   * @parameter property=tokenFactory
    * @since 2.5
    */
+  @Parameter (property = "tokenFactory")
   private String tokenFactory;
 
   /**
    * Enables/disables many syntactic and semantic checks on the grammar file during parser
    * generation. Default value is <code>true</code>.
-   *
-   * @parameter property=sanityCheck
    */
+  @Parameter (property = "sanityCheck")
   private Boolean sanityCheck;
 
   /**
    * This option setting controls lookahead ambiguity checking performed by JavaCC. Default value is
    * <code>false</code>.
-   *
-   * @parameter property=forceLaCheck
    */
+  @Parameter (property = "forceLaCheck")
   private Boolean forceLaCheck;
 
   /**
    * Setting this option to <code>true</code> causes the generated parser to lookahead for extra
    * tokens ahead of time. Default value is <code>false</code>.
-   *
-   * @parameter property=cacheTokens
    */
+  @Parameter (property = "cacheTokens")
   private Boolean cacheTokens;
 
   /**
    * A flag whether to keep line and column information along with a token. Default value is
    * <code>true</code>.
-   *
-   * @parameter property=keepLineColumn
    */
+  @Parameter (property = "keepLineColumn")
   private Boolean keepLineColumn;
 
   /**
    * A flag whether the generated support classes of the parser should have public or
    * package-private visibility. Default value is <code>true</code>.
    *
-   * @parameter property=supportClassVisibilityPublic
    * @since 2.6
    */
+  @Parameter (property = "supportClassVisibilityPublic")
   private Boolean supportClassVisibilityPublic;
 
   /**
    * The file encoding to use for reading the grammar files.
    *
-   * @parameter property=grammarEncoding default-value="${project.build.sourceEncoding}"
    * @since 2.6
    */
+  @Parameter (property = "grammarEncoding", defaultValue = "${project.build.sourceEncoding}")
   private String grammarEncoding;
 
   /**
    * The file encoding to use for writing the output files.
    *
-   * @parameter property=outputEncoding default-value="${project.build.sourceEncoding}"
    * @since 4.1.0
    */
+  @Parameter (property = "outputEncoding", defaultValue = "${project.build.sourceEncoding}")
   private String outputEncoding;
 
   /**
@@ -297,6 +274,7 @@ public abstract class AbstractJavaCCMojo extends AbstractMojo
    * @parameter default="classic"
    * @since 4.1.0
    */
+  @Parameter (property = "classic")
   private String javaTemplateType;
 
   /**

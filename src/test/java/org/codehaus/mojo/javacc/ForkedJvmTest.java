@@ -1,39 +1,22 @@
 package org.codehaus.mojo.javacc;
 
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 
 import org.codehaus.plexus.util.cli.CommandLineUtils.StringStreamConsumer;
-
-import junit.framework.TestCase;
+import org.junit.Test;
 
 /**
  * Tests <code>ForkedJvm</code>.
  *
  * @author Benjamin Bentmann
- * @version $Id: ForkedJvmTest.java 8698 2009-01-16 09:54:29Z bentmann $
  */
-public class ForkedJvmTest extends TestCase
+public class ForkedJvmTest
 {
-
+  @Test
   public void testToStringNullSafe () throws Exception
   {
     final ForkedJvm jvm = new ForkedJvm ();
@@ -42,6 +25,7 @@ public class ForkedJvmTest extends TestCase
     assertTrue (string.indexOf ("null") < 0);
   }
 
+  @Test
   public void testSettersNullSafe () throws Exception
   {
     final ForkedJvm jvm = new ForkedJvm ();
@@ -59,6 +43,7 @@ public class ForkedJvmTest extends TestCase
     jvm.setSystemErr (null);
   }
 
+  @Test
   public void testSetMainClass () throws Exception
   {
     final ForkedJvm jvm1 = new ForkedJvm ();
@@ -74,6 +59,7 @@ public class ForkedJvmTest extends TestCase
     assertEquals (cmd1, cmd2);
   }
 
+  @Test
   public void testFork () throws Exception
   {
     final File workDir = new File (System.getProperty ("user.home")).getCanonicalFile ();

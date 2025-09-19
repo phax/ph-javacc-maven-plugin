@@ -32,9 +32,7 @@ import com.helger.base.state.ESuccess;
  * Provides a facade for the mojos to invoke JavaCC.
  *
  * @author Benjamin Bentmann
- * @version $Id: JavaCC.java 10603 2009-09-06 15:05:08Z bentmann $
- * @see <a href="https://javacc.dev.java.net/doc/commandline.html">JavaCC
- *      Command Line Syntax</a>
+ * @see <a href="https://javacc.dev.java.net/doc/commandline.html">JavaCC Command Line Syntax</a>
  */
 class JavaCC extends AbstractToolFacade
 {
@@ -184,12 +182,10 @@ class JavaCC extends AbstractToolFacade
   private String javaTemplateType;
 
   /**
-   * Sets the absolute path to the grammar file to pass into JavaCC for
-   * compilation.
+   * Sets the absolute path to the grammar file to pass into JavaCC for compilation.
    *
    * @param value
-   *        The absolute path to the grammar file to pass into JavaCC for
-   *        compilation.
+   *        The absolute path to the grammar file to pass into JavaCC for compilation.
    */
   public void setInputFile (final File value)
   {
@@ -204,11 +200,10 @@ class JavaCC extends AbstractToolFacade
    * Sets the absolute path to the output directory.
    *
    * @param value
-   *        The absolute path to the output directory for the generated parser
-   *        file. If this directory does not exist yet, it is created. Note that
-   *        this path should already include the desired package hierarchy
-   *        because JavaCC will not append the required sub directories
-   *        automatically.
+   *        The absolute path to the output directory for the generated parser file. If this
+   *        directory does not exist yet, it is created. Note that this path should already include
+   *        the desired package hierarchy because JavaCC will not append the required sub
+   *        directories automatically.
    */
   public void setOutputDirectory (final File value)
   {
@@ -223,8 +218,8 @@ class JavaCC extends AbstractToolFacade
    * Sets the option GRAMMAR_ENCODING.
    *
    * @param value
-   *        The option value, may be <code>null</code> to use the value provided
-   *        in the grammar or the default.
+   *        The option value, may be <code>null</code> to use the value provided in the grammar or
+   *        the default.
    */
   public void setGrammarEncoding (final String value)
   {
@@ -235,8 +230,8 @@ class JavaCC extends AbstractToolFacade
    * Sets the option OUTPUT_ENCODING.
    *
    * @param value
-   *        The option value, may be <code>null</code> to use the value provided
-   *        in the grammar or the default.
+   *        The option value, may be <code>null</code> to use the value provided in the grammar or
+   *        the default.
    */
   public void setOutputEncoding (final String value)
   {
@@ -247,8 +242,8 @@ class JavaCC extends AbstractToolFacade
    * Sets the option JDK_VERSION.
    *
    * @param value
-   *        The option value, may be <code>null</code> to use the value provided
-   *        in the grammar or the default.
+   *        The option value, may be <code>null</code> to use the value provided in the grammar or
+   *        the default.
    */
   public void setJdkVersion (final String value)
   {
@@ -259,8 +254,8 @@ class JavaCC extends AbstractToolFacade
    * Sets the option LOOK_AHEAD.
    *
    * @param value
-   *        The option value, may be <code>null</code> to use the value provided
-   *        in the grammar or the default.
+   *        The option value, may be <code>null</code> to use the value provided in the grammar or
+   *        the default.
    */
   public void setLookAhead (final Integer value)
   {
@@ -271,8 +266,8 @@ class JavaCC extends AbstractToolFacade
    * Sets the option CHOICE_AMBIGUITY_CHECK.
    *
    * @param value
-   *        The option value, may be <code>null</code> to use the value provided
-   *        in the grammar or the default.
+   *        The option value, may be <code>null</code> to use the value provided in the grammar or
+   *        the default.
    */
   public void setChoiceAmbiguityCheck (final Integer value)
   {
@@ -283,8 +278,8 @@ class JavaCC extends AbstractToolFacade
    * Sets the option OTHER_AMBIGUITY_CHECK.
    *
    * @param value
-   *        The option value, may be <code>null</code> to use the value provided
-   *        in the grammar or the default.
+   *        The option value, may be <code>null</code> to use the value provided in the grammar or
+   *        the default.
    */
   public void setOtherAmbiguityCheck (final Integer value)
   {
@@ -295,8 +290,8 @@ class JavaCC extends AbstractToolFacade
    * Sets the option DEBUG_PARSER.
    *
    * @param value
-   *        The option value, may be <code>null</code> to use the value provided
-   *        in the grammar or the default.
+   *        The option value, may be <code>null</code> to use the value provided in the grammar or
+   *        the default.
    */
   public void setDebugParser (final Boolean value)
   {
@@ -307,8 +302,8 @@ class JavaCC extends AbstractToolFacade
    * Sets the option DEBUG_LOOK_AHEAD.
    *
    * @param value
-   *        The option value, may be <code>null</code> to use the value provided
-   *        in the grammar or the default.
+   *        The option value, may be <code>null</code> to use the value provided in the grammar or
+   *        the default.
    */
   public void setDebugLookAhead (final Boolean value)
   {
@@ -319,8 +314,8 @@ class JavaCC extends AbstractToolFacade
    * Sets the option DEBUG_TOKEN_MANAGER.
    *
    * @param value
-   *        The option value, may be <code>null</code> to use the value provided
-   *        in the grammar or the default.
+   *        The option value, may be <code>null</code> to use the value provided in the grammar or
+   *        the default.
    */
   public void setDebugTokenManager (final Boolean value)
   {
@@ -331,8 +326,8 @@ class JavaCC extends AbstractToolFacade
    * Sets the option ERROR_REPORTING.
    *
    * @param value
-   *        The option value, may be <code>null</code> to use the value provided
-   *        in the grammar or the default.
+   *        The option value, may be <code>null</code> to use the value provided in the grammar or
+   *        the default.
    */
   public void setErrorReporting (final Boolean value)
   {
@@ -343,8 +338,8 @@ class JavaCC extends AbstractToolFacade
    * Sets the option JAVA_UNICODE_ESCAPE.
    *
    * @param value
-   *        The option value, may be <code>null</code> to use the value provided
-   *        in the grammar or the default.
+   *        The option value, may be <code>null</code> to use the value provided in the grammar or
+   *        the default.
    */
   public void setJavaUnicodeEscape (final Boolean value)
   {
@@ -355,8 +350,8 @@ class JavaCC extends AbstractToolFacade
    * Sets the option UNICODE_INPUT.
    *
    * @param value
-   *        The option value, may be <code>null</code> to use the value provided
-   *        in the grammar or the default.
+   *        The option value, may be <code>null</code> to use the value provided in the grammar or
+   *        the default.
    */
   public void setUnicodeInput (final Boolean value)
   {
@@ -367,8 +362,8 @@ class JavaCC extends AbstractToolFacade
    * Sets the option IGNORE_CASE.
    *
    * @param value
-   *        The option value, may be <code>null</code> to use the value provided
-   *        in the grammar or the default.
+   *        The option value, may be <code>null</code> to use the value provided in the grammar or
+   *        the default.
    */
   public void setIgnoreCase (final Boolean value)
   {
@@ -379,8 +374,8 @@ class JavaCC extends AbstractToolFacade
    * Sets the option COMMON_TOKEN_ACTION.
    *
    * @param value
-   *        The option value, may be <code>null</code> to use the value provided
-   *        in the grammar or the default.
+   *        The option value, may be <code>null</code> to use the value provided in the grammar or
+   *        the default.
    */
   public void setCommonTokenAction (final Boolean value)
   {
@@ -391,8 +386,8 @@ class JavaCC extends AbstractToolFacade
    * Sets the option USER_TOKEN_MANAGER.
    *
    * @param value
-   *        The option value, may be <code>null</code> to use the value provided
-   *        in the grammar or the default.
+   *        The option value, may be <code>null</code> to use the value provided in the grammar or
+   *        the default.
    */
   public void setUserTokenManager (final Boolean value)
   {
@@ -403,8 +398,8 @@ class JavaCC extends AbstractToolFacade
    * Sets the option USER_CHAR_STREAM.
    *
    * @param value
-   *        The option value, may be <code>null</code> to use the value provided
-   *        in the grammar or the default.
+   *        The option value, may be <code>null</code> to use the value provided in the grammar or
+   *        the default.
    */
   public void setUserCharStream (final Boolean value)
   {
@@ -415,8 +410,8 @@ class JavaCC extends AbstractToolFacade
    * Sets the option BUILD_PARSER.
    *
    * @param value
-   *        The option value, may be <code>null</code> to use the value provided
-   *        in the grammar or the default.
+   *        The option value, may be <code>null</code> to use the value provided in the grammar or
+   *        the default.
    */
   public void setBuildParser (final Boolean value)
   {
@@ -427,8 +422,8 @@ class JavaCC extends AbstractToolFacade
    * Sets the option BUILD_TOKEN_MANAGER.
    *
    * @param value
-   *        The option value, may be <code>null</code> to use the value provided
-   *        in the grammar or the default.
+   *        The option value, may be <code>null</code> to use the value provided in the grammar or
+   *        the default.
    */
   public void setBuildTokenManager (final Boolean value)
   {
@@ -439,8 +434,8 @@ class JavaCC extends AbstractToolFacade
    * Sets the option TOKEN_MANAGER_USES_PARSER.
    *
    * @param value
-   *        The option value, may be <code>null</code> to use the value provided
-   *        in the grammar or the default.
+   *        The option value, may be <code>null</code> to use the value provided in the grammar or
+   *        the default.
    */
   public void setTokenManagerUsesParser (final Boolean value)
   {
@@ -451,8 +446,8 @@ class JavaCC extends AbstractToolFacade
    * Sets the option TOKEN_EXTENDS.
    *
    * @param value
-   *        The option value, may be <code>null</code> to use the value provided
-   *        in the grammar or the default.
+   *        The option value, may be <code>null</code> to use the value provided in the grammar or
+   *        the default.
    */
   public void setTokenExtends (final String value)
   {
@@ -463,8 +458,8 @@ class JavaCC extends AbstractToolFacade
    * Sets the option TOKEN_FACTORY.
    *
    * @param value
-   *        The option value, may be <code>null</code> to use the value provided
-   *        in the grammar or the default.
+   *        The option value, may be <code>null</code> to use the value provided in the grammar or
+   *        the default.
    */
   public void setTokenFactory (final String value)
   {
@@ -475,8 +470,8 @@ class JavaCC extends AbstractToolFacade
    * Sets the option SANITY_CHECK.
    *
    * @param value
-   *        The option value, may be <code>null</code> to use the value provided
-   *        in the grammar or the default.
+   *        The option value, may be <code>null</code> to use the value provided in the grammar or
+   *        the default.
    */
   public void setSanityCheck (final Boolean value)
   {
@@ -487,8 +482,8 @@ class JavaCC extends AbstractToolFacade
    * Sets the option FORCE_LA_CHECK.
    *
    * @param value
-   *        The option value, may be <code>null</code> to use the value provided
-   *        in the grammar or the default.
+   *        The option value, may be <code>null</code> to use the value provided in the grammar or
+   *        the default.
    */
   public void setForceLaCheck (final Boolean value)
   {
@@ -499,8 +494,8 @@ class JavaCC extends AbstractToolFacade
    * Sets the option CACHE_TOKENS.
    *
    * @param value
-   *        The option value, may be <code>null</code> to use the value provided
-   *        in the grammar or the default.
+   *        The option value, may be <code>null</code> to use the value provided in the grammar or
+   *        the default.
    */
   public void setCacheTokens (final Boolean value)
   {
@@ -511,8 +506,8 @@ class JavaCC extends AbstractToolFacade
    * Sets the option KEEP_LINE_COLUMN.
    *
    * @param value
-   *        The option value, may be <code>null</code> to use the value provided
-   *        in the grammar or the default.
+   *        The option value, may be <code>null</code> to use the value provided in the grammar or
+   *        the default.
    */
   public void setKeepLineColumn (final Boolean value)
   {
@@ -523,8 +518,8 @@ class JavaCC extends AbstractToolFacade
    * Sets the option SUPPORT_CLASS_VISIBILITY_PUBLIC.
    *
    * @param value
-   *        The option value, may be <code>null</code> to use the value provided
-   *        in the grammar or the default.
+   *        The option value, may be <code>null</code> to use the value provided in the grammar or
+   *        the default.
    */
   public void setSupportClassVisibilityPublic (final Boolean value)
   {
@@ -535,8 +530,7 @@ class JavaCC extends AbstractToolFacade
    * Sets the option value JAVA_TEMPLATE_TYPE.
    *
    * @param value
-   *        Option value to be used. Only used if not <code>null</code> and not
-   *        empty.
+   *        Option value to be used. Only used if not <code>null</code> and not empty.
    */
   public void setJavaTemplateType (final String value)
   {
@@ -572,15 +566,14 @@ class JavaCC extends AbstractToolFacade
   }
 
   /**
-   * Assembles the command line arguments for the invocation of JavaCC according
-   * to the configuration.<br/>
+   * Assembles the command line arguments for the invocation of JavaCC according to the
+   * configuration.<br/>
    * <br/>
-   * <strong>Note:</strong> To prevent conflicts with JavaCC options that might
-   * be set directly in the grammar file, only those parameters that have been
-   * explicitly set are passed on the command line.
+   * <strong>Note:</strong> To prevent conflicts with JavaCC options that might be set directly in
+   * the grammar file, only those parameters that have been explicitly set are passed on the command
+   * line.
    *
-   * @return A string array that represents the command line arguments to use
-   *         for JavaCC.
+   * @return A string array that represents the command line arguments to use for JavaCC.
    */
   private String [] _generateArguments ()
   {

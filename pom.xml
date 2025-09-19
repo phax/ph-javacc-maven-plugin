@@ -88,6 +88,16 @@
         <artifactId>commons-lang3</artifactId>
         <version>3.18.0</version>
       </dependency>
+      <dependency>
+        <groupId>commons-beanutils</groupId>
+        <artifactId>commons-beanutils</artifactId>
+        <version>1.11.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.iq80.snappy</groupId>
+        <artifactId>snappy</artifactId>
+        <version>0.5</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 

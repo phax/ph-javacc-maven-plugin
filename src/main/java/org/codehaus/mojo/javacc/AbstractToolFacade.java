@@ -25,10 +25,9 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.plugin.logging.SystemStreamLog;
+import org.jspecify.annotations.NonNull;
 
 import com.helger.base.state.ESuccess;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Provides a facade for the mojos to invoke JavaCC related tools.
@@ -87,7 +86,7 @@ abstract class AbstractToolFacade
    * @throws Exception
    *         If the tool could not be invoked.
    */
-  @Nonnull
+  @NonNull
   protected abstract ESuccess execute () throws Exception;
 
   /**

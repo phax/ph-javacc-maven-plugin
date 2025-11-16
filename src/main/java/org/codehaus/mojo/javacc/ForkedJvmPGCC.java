@@ -18,12 +18,11 @@
  */
 package org.codehaus.mojo.javacc;
 
+import org.jspecify.annotations.Nullable;
 import org.slf4j.LoggerFactory;
 
 import com.helger.base.id.IHasID;
 import com.helger.security.messagedigest.EMessageDigestAlgorithm;
-
-import jakarta.annotation.Nullable;
 
 /**
  * Special implementation of <code>ForkedJvm</code> that adds some default class path entries.

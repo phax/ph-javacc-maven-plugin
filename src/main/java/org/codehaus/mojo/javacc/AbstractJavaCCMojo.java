@@ -32,11 +32,10 @@ import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.codehaus.plexus.util.FileUtils;
 import org.codehaus.plexus.util.SelectorUtils;
+import org.jspecify.annotations.NonNull;
 
 import com.helger.base.string.StringHelper;
 import com.helger.collection.commons.CommonsLinkedHashSet;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Provides common services for all mojos that compile JavaCC grammar files.
@@ -679,7 +678,7 @@ public abstract class AbstractJavaCCMojo extends AbstractMojo
    *
    * @return The facade for the tool invocation, never <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   protected JavaCC newJavaCC ()
   {
     final JavaCC javacc = new JavaCC ();

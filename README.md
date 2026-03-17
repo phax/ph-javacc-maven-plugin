@@ -1,5 +1,10 @@
 # ph-javacc-maven-plugin
 
+<!-- ph-badge-start -->
+[![Sonatype Central](https://maven-badges.sml.io/sonatype-central/com.helger.maven/ph-javacc-maven-plugin/badge.svg)](https://maven-badges.sml.io/sonatype-central/com.helger.maven/ph-javacc-maven-plugin/)
+[![javadoc](https://javadoc.io/badge2/com.helger.maven/ph-javacc-maven-plugin/javadoc.svg)](https://javadoc.io/doc/com.helger.maven/ph-javacc-maven-plugin)
+<!-- ph-badge-end -->
+
 An updated version of the [javacc-maven-plugin](https://github.com/mojohaus/javacc-maven-plugin).
 Originally it was JavaCC 6.1.3, than updated to JavaCC 7.0 but in the meantime the underlying code is the [ParserGeneratorCC](https://github.com/phax/ParserGeneratorCC/) project which is a fork of JavaCC 7.0.3 but with slightly improved code and output quality.
 

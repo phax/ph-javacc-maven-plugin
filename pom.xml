@@ -136,6 +136,10 @@
     <dependency>
       <groupId>com.helger</groupId>
       <artifactId>parser-generator-cc</artifactId>
+      <!-- TODO: Upgrade once a release includes the JavaCharStream buffer fix.
+           Issue: https://github.com/tulipcc/ParserGeneratorCC/issues/46
+           Fix: https://github.com/tulipcc/ParserGeneratorCC/pull/47
+           Version 2.0.1 still fails when JAVA_UNICODE_ESCAPE=true and the token buffer wraps. -->
       <version>2.0.1</version>
     </dependency>
     

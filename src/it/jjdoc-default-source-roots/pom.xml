@@ -61,8 +61,8 @@
         </executions>
       </plugin>
       <plugin>
-        <groupId>io.github.tulipcc</groupId>
-        <artifactId>tulipcc-maven-plugin</artifactId>
+        <groupId>com.helger.maven</groupId>
+        <artifactId>ph-javacc-maven-plugin</artifactId>
         <version>@pom.version@</version>
       </plugin>
       <plugin>
@@ -75,8 +75,8 @@
   <reporting>
     <plugins>
       <plugin>
-        <groupId>io.github.tulipcc</groupId>
-        <artifactId>tulipcc-maven-plugin</artifactId>
+        <groupId>com.helger.maven</groupId>
+        <artifactId>ph-javacc-maven-plugin</artifactId>
         <version>@pom.version@</version>
       </plugin>
       <plugin>

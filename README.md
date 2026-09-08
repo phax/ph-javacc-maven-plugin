@@ -120,6 +120,11 @@ Supported goals with the respective parameters are:
 
 # News and noteworthy
 
+v5.0.2 - work in progress
+* Updated to ParserGeneratorCC 2.0.3
+* Added support for the new ParserGeneratorCC option `JAVA_CHAR_STREAM_TYPE` via the new parameter `javaCharStreamType`
+* Fixed the plugin coordinates used in the integration test projects
+
 v5.0.1 - 2025-11-16
 * Updated to ph-commons 12.1.0
 * Using JSpecify annotations

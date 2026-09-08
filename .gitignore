@@ -2,6 +2,7 @@
 hs_err_pid*
 
 target/
+it-local-repo/
 .pmd
 *.iml
 .settings/ 

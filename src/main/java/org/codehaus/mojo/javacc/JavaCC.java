@@ -181,6 +181,11 @@ class JavaCC extends AbstractToolFacade
   private String javaTemplateType;
 
   /**
+   * The option JAVA_CHAR_STREAM_TYPE.
+   */
+  private String javaCharStreamType;
+
+  /**
    * Sets the absolute path to the grammar file to pass into JavaCC for compilation.
    *
    * @param value
@@ -536,6 +541,17 @@ class JavaCC extends AbstractToolFacade
     this.javaTemplateType = value;
   }
 
+  /**
+   * Sets the option value JAVA_CHAR_STREAM_TYPE.
+   *
+   * @param value
+   *        Option value to be used. Only used if not <code>null</code> and not empty.
+   */
+  public void setJavaCharStreamType (final String value)
+  {
+    this.javaCharStreamType = value;
+  }
+
   @Override
   protected ESuccess execute () throws Exception
   {
@@ -716,6 +732,11 @@ class JavaCC extends AbstractToolFacade
     if (StringUtils.isNotEmpty (this.javaTemplateType))
     {
       argsList.add ("-JAVA_TEMPLATE_TYPE=" + this.javaTemplateType);
+    }
+
+    if (StringUtils.isNotEmpty (this.javaCharStreamType))
+    {
+      argsList.add ("-JAVA_CHAR_STREAM_TYPE=" + this.javaCharStreamType);
     }
 
     if (this.inputFile != null)

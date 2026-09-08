@@ -67,6 +67,7 @@ public class JavaCCTest
     tool.setUnicodeInput (null);
     tool.setUserCharStream (null);
     tool.setUserTokenManager (null);
+    tool.setJavaCharStreamType (null);
     tool.setLog (null);
   }
 

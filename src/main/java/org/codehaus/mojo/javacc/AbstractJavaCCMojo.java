@@ -276,6 +276,16 @@ public abstract class AbstractJavaCCMojo extends AbstractMojo
   private String javaTemplateType;
 
   /**
+   * The Java <code>CharStream</code> type to be used. Must be "simple" or "charsequence". Defaults
+   * to "simple". The value "charsequence" selects the <code>CharSequenceCharStream</code> that
+   * needs no internal buffer and requires <code>javaUnicodeEscape</code> to be disabled.
+   *
+   * @since 5.0.2
+   */
+  @Parameter (property = "javaCharStreamType")
+  private String javaCharStreamType;
+
+  /**
    * Gets the file encoding of the grammar files.
    *
    * @return The file encoding of the grammar files or <code>null</code> if the user did not specify
@@ -317,6 +327,17 @@ public abstract class AbstractJavaCCMojo extends AbstractMojo
   protected String getJavaTemplateType ()
   {
     return this.javaTemplateType;
+  }
+
+  /**
+   * Gets the Java <code>CharStream</code> type to be used.
+   *
+   * @return The Java <code>CharStream</code> type or <code>null</code> if the user did not specify
+   *         this mojo parameter.
+   */
+  protected String getJavaCharStreamType ()
+  {
+    return this.javaCharStreamType;
   }
 
   /**
@@ -710,6 +731,7 @@ public abstract class AbstractJavaCCMojo extends AbstractMojo
     javacc.setUserTokenManager (this.userTokenManager);
     javacc.setSupportClassVisibilityPublic (this.supportClassVisibilityPublic);
     javacc.setJavaTemplateType (this.javaTemplateType);
+    javacc.setJavaCharStreamType (this.javaCharStreamType);
     return javacc;
   }
 }

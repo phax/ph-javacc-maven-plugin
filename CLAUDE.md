@@ -1,0 +1,64 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## What this project is
+
+Maven 3 plugin that generates parsers from JavaCC grammar files. It is a fork of
+`mojohaus/javacc-maven-plugin`, so the Java package stays `org.codehaus.mojo.javacc` and the
+upstream file layout is kept on purpose.
+
+The parser generator behind every goal is **ParserGeneratorCC** (`com.helger:parser-generator-cc`, a
+fork of JavaCC 7.0.3), usually checked out as a sibling at `../ParserGeneratorCC`. There is no
+dependency on `net.java.dev.javacc` and none must be added.
+
+Goal prefix is `ph-javacc`. Goals: `javacc`, `jjtree-javacc`, `jtb-javacc`, `jjdoc` (plus the
+generated `help`).
+
+Per tool there is a `*Mojo` class (Maven front end) and a facade extending `AbstractToolFacade`
+(`JavaCC`, `JJTree`, `JJDoc`, `JTB`). JavaCC, JJTree and JJDoc call PGCC **in process**; only JTB
+forks a JVM (`ForkedJvm` / `ForkedJvmPGCC`). The default-package classes
+`src/main/java/{javacc,jjdoc,jjtree}.java` are launcher stubs for forked invocations - they are
+deliberately not in a package.
+
+## Build and verify
+
+- `mvn clean install` - run after every change (unit tests plus plugin descriptor generation).
+- `mvn license:format` - the license plugin is declared but **not** bound to a lifecycle phase, so
+  new or renamed files stay without a header until this is run. `mvn license:check` verifies.
+  Header template: `src/etc/license-template.txt`.
+- Java 17 is the compile target (inherited from `com.helger:parent-pom`).
+- There is no CI build; the only GitHub workflow posts release notifications to Slack.
+
+## Integration tests
+
+- `mvn clean install -Dit=true` activates the `run-its` profile and runs maven-invoker-plugin over
+  `src/it/*`.
+- An IT is a small project with `pom.xml` (plugin version filtered in as `@pom.version@`),
+  `invoker.properties` (goals) and `verify.bsh` (post-build assertions).
+- Build logs end up in `target/it/<name>/build.log`; `it-local-repo/` is a throw-away local
+  repository and can be deleted. `mvn license:check` / `license:format` also scan `it-local-repo/`
+  and report every third-party POM in there, so delete it before running them.
+- As of PGCC 2.0.3, 16 of the 21 ITs pass. These five fail in their `verify.bsh` and failed
+  identically with PGCC 2.0.1, so the cause is older than the current dependency version:
+  `jjtree-javacc-basic`, `jtb-javacc-basic`, `javacc-custom-parser-files` (custom source files get
+  overwritten by generated ones), `javacc-stale-detection` (parser regenerated although it was
+  newer than the grammar) and `jjdoc-default-source-roots` (`Simple.html` not produced).
+- Run a single IT with `-Dinvoker.test=<directory-name>`.
+
+## Adding a JavaCC/PGCC option
+
+Thread it through all of: the facade field plus setter (e.g. `JavaCC.java`), the argument list the
+facade assembles for PGCC, a `@Parameter` in `AbstractJavaCCMojo` (or the specific mojo), and the
+copy in `AbstractJavaCCMojo.newJavaCC ()`. Then document it in `README.md` and under
+`src/site/apt/`.
+
+## Conventions
+
+- Match the style of the file being edited. Most files keep the upstream codehaus style (plain
+  camelCase fields, `this.` prefix); a few carry helger-style `m_` fields. Do not convert files to
+  the global Hungarian convention and do not reformat untouched code.
+- Plugin output goes through Maven's `getLog ()`, not SLF4J.
+- Every change gets a bullet in the `# News and noteworthy` section of `README.md` under the
+  upcoming `-SNAPSHOT` version, titled `vX.Y.Z - work in progress` until release. This project has
+  no wiki checkout.

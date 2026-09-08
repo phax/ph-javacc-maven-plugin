@@ -16,6 +16,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* CUSTOMIZED PARSER FILE - MUST NOT BE OVERWRITTEN BY JAVACC */
 package org.codehaus.javacc.simple;
 
 public class Token

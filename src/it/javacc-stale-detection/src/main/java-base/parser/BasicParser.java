@@ -16,6 +16,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* UP-TO-DATE PARSER FILE - MUST NOT BE OVERWRITTEN BY JAVACC */
 package parser;
 
 public class BasicParser implements BasicParserConstants {

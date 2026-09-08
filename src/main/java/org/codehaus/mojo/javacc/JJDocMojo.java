@@ -28,6 +28,7 @@ import java.util.Set;
 
 import org.apache.maven.doxia.sink.Sink;
 import org.apache.maven.doxia.siterenderer.Renderer;
+import org.apache.maven.plugins.annotations.Execute;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
@@ -47,6 +48,7 @@ import org.apache.maven.reporting.MavenReportException;
  * @author <a href="mailto:pgier@redhat.com">Paul Gier</a>
  */
 @Mojo (name = "jjdoc", defaultPhase = LifecyclePhase.GENERATE_SOURCES, threadSafe = true)
+@Execute (phase = LifecyclePhase.GENERATE_SOURCES)
 public class JJDocMojo extends AbstractMavenReport
 {
   /**

@@ -72,6 +72,7 @@
     <maven.core.version>3.9.11</maven.core.version>
     <maven.annot.version>3.8.2</maven.annot.version>
     <maven.test.version>3.3.0</maven.test.version>
+    <pgcc.version>2.0.3</pgcc.version>
   </properties>
 
   <dependencyManagement>
@@ -136,7 +137,7 @@
     <dependency>
       <groupId>com.helger</groupId>
       <artifactId>parser-generator-cc</artifactId>
-      <version>2.0.3</version>
+      <version>${pgcc.version}</version>
     </dependency>
     
     <dependency>

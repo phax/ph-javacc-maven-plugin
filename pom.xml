@@ -72,7 +72,7 @@
     <maven.core.version>3.9.11</maven.core.version>
     <maven.annot.version>3.8.2</maven.annot.version>
     <maven.test.version>3.3.0</maven.test.version>
-    <pgcc.version>2.0.3</pgcc.version>
+    <pgcc.version>3.0.0</pgcc.version>
   </properties>
 
   <dependencyManagement>

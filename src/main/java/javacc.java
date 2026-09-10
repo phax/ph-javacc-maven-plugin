@@ -17,8 +17,8 @@
  * limitations under the License.
  */
 /**
- * Intermediary between OS script and main program of application. Having this
- * intermediary allows the OS scripts to be package name independent.
+ * Intermediary between OS script and main program of application. Having this intermediary allows
+ * the OS scripts to be package name independent.
  */
 public final class javacc
 {
